@@ -30,6 +30,15 @@
     <string name="sent">Zgłoszenie zostało wysłane</string>
     <string name="undo">Cofnij</string>
 
+    <string name="label_urgency">Pilność usterki (0–10)</string>
+    <string name="notifications">Chcę otrzymywać powiadomienia</string>
+    <string name="btn_clear">Wyczyść formularz</string>
+    <string name="clear_title">Wyczyścić formularz?</string>
+    <string name="clear_message">Czy na pewno chcesz usunąć wszystkie dane?</string>
+    <string name="clear_yes">Wyczyść</string>
+    <string name="clear_no">Anuluj</string>
+    <string name="cleared">Formularz wyczyszczony</string>
+
     <string name="status_sent">Zgłoszenie zapisane</string>
 
     <string-array name="categories">
