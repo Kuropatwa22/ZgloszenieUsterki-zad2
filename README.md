@@ -47,3 +47,36 @@ Dlatego nie można go zapisać jako zwykłej lambdy i trzeba użyć klasy anonim
 CheckBox używa OnCheckedChangeListener, który ma jedną metodę, dlatego można użyć lambdy.
 
 W moim formularzu użyłem lambdy przy CheckBox, a Spinner podłączyłem przez ArrayAdapter.
+
+
+## Zadanie 3 — Sprzątanie po sobie
+
+Do formularza zgłoszenia usterki dodałem przycisk „Wyczyść formularz”.
+
+Po jego kliknięciu pojawia się AlertDialog z pytaniem, czy na pewno chcę wyczyścić formularz.
+
+Jeśli potwierdzę, program:
+- czyści wszystkie pola tekstowe,
+- ustawia Spinner na pierwszej pozycji,
+- odznacza RadioGroup,
+- ustawia SeekBar na 0,
+- odznacza CheckBox i Switch,
+- usuwa błędy z pól za pomocą setError(null).
+
+Po wyczyszczeniu pokazuje się Snackbar z przyciskiem „Cofnij”.
+
+### Jak zrobiłem cofanie?
+
+Przed czyszczeniem zapisuję poprzednie wartości pól do zmiennych, np. oldTitle, oldCategory i oldUrgency.
+
+Dzięki temu po kliknięciu „Cofnij” mogę ustawić kontrolki z powrotem na wcześniejsze wartości.
+
+Zapamiętuję też błędy pól, żeby można było je przywrócić.
+
+Nie używałem żadnej bazy danych, ponieważ zapamiętane wartości są potrzebne tylko na czas działania przycisku „Cofnij”.
+
+### Czego się nauczyłem?
+
+AlertDialog służy do potwierdzania akcji, a Snackbar może pokazywać krótki komunikat z możliwością wykonania dodatkowej czynności.
+
+Samo wyczyszczenie pól jest proste, ale do cofania trzeba najpierw zapamiętać ich poprzedni stan.
