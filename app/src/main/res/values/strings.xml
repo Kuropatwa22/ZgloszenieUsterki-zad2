@@ -1,3 +1,44 @@
+
 <resources>
-    <string name="app_name">Usterki</string>
+    <string name="app_name">Zgloszenie usterki</string>
+    <string name="title">Zgłoszenie usterki</string>
+
+    <string name="hint_title">Tytuł usterki</string>
+    <string name="label_category">Kategoria usterki</string>
+    <string name="label_priority">Priorytet</string>
+
+    <string name="priority_low">Niski</string>
+    <string name="priority_medium">Średni</string>
+    <string name="priority_high">Wysoki</string>
+
+    <string name="hint_location">Lokalizacja usterki</string>
+    <string name="hint_description">Opisz usterkę</string>
+    <string name="contact_agree">Zgadzam się na kontakt</string>
+    <string name="hint_email">Adres e-mail</string>
+    <string name="btn_submit">Wyślij zgłoszenie</string>
+
+    <string name="error_title">Wpisz tytuł usterki</string>
+    <string name="error_location">Podaj lokalizację</string>
+    <string name="error_description">Opisz usterkę</string>
+    <string name="error_email">Podaj poprawny e-mail</string>
+    <string name="error_category">Wybierz kategorię</string>
+    <string name="error_priority">Wybierz priorytet</string>
+
+    <string name="confirm_title">Potwierdzenie</string>
+    <string name="confirm_message">Czy na pewno chcesz zgłosić usterkę?</string>
+    <string name="yes">Tak</string>
+    <string name="no">Nie</string>
+    <string name="sent">Zgłoszenie zostało wysłane</string>
+    <string name="undo">Cofnij</string>
+
+    <string name="status_sent">Zgłoszenie zapisane</string>
+
+    <string-array name="categories">
+        <item>-- Wybierz kategorię --</item>
+        <item>Komputer</item>
+        <item>Internet</item>
+        <item>Oprogramowanie</item>
+        <item>Drukarka</item>
+        <item>Inne</item>
+    </string-array>
 </resources>
