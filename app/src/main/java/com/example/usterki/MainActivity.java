@@ -11,7 +11,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.util.Patterns;
 import android.widget.Toast;
-
+import androidx.appcompat.app.AlertDialog;
+import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -59,11 +60,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
         btnSubmit.setOnClickListener(v -> {
             if (validateForm()) {
-                tvStatus.setText(R.string.status_sent);
+                confirmReport();
             }
         });
+
 
 
     }
@@ -118,6 +121,34 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+
+    private void sendReport() {
+
+        tvStatus.setText(R.string.status_sent);
+
+        Snackbar.make(
+                        findViewById(R.id.main),
+                        R.string.sent,
+                        Snackbar.LENGTH_LONG)
+                .setAction(R.string.undo, v -> {
+                    tvStatus.setText("");
+                })
+                .show();
+    }
+
+
+    private void confirmReport() {
+
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.confirm_title)
+                .setMessage(R.string.confirm_message)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    sendReport();
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
     }
 
 }
