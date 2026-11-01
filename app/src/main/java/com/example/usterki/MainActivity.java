@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.util.Patterns;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,5 +59,65 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+        btnSubmit.setOnClickListener(v -> {
+            if (validateForm()) {
+                tvStatus.setText(R.string.status_sent);
+            }
+        });
+
+
     }
+
+    private boolean validateForm() {
+
+        String title = etTitle.getText().toString().trim();
+
+        if (title.isEmpty()) {
+            etTitle.setError(getString(R.string.error_title));
+            etTitle.requestFocus();
+            return false;
+        }
+
+        if (spCategory.getSelectedItemPosition() == 0) {
+            Toast.makeText(this, R.string.error_category,
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (rgPriority.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(this, R.string.error_priority,
+                    Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        String location = etLocation.getText().toString().trim();
+
+        if (location.isEmpty()) {
+            etLocation.setError(getString(R.string.error_location));
+            etLocation.requestFocus();
+            return false;
+        }
+
+        String description = etDescription.getText().toString().trim();
+
+        if (description.isEmpty()) {
+            etDescription.setError(getString(R.string.error_description));
+            etDescription.requestFocus();
+            return false;
+        }
+
+        if (cbContact.isChecked()) {
+
+            String email = etEmail.getText().toString().trim();
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                etEmail.setError(getString(R.string.error_email));
+                etEmail.requestFocus();
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
