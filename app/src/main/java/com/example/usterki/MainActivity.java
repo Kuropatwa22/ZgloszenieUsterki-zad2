@@ -47,5 +47,15 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item);
 
         spCategory.setAdapter(adapter);
+
+        cbContact.setOnCheckedChangeListener(
+                (buttonView, isChecked) -> {
+                    etEmail.setEnabled(isChecked);
+
+                    if (!isChecked) {
+                        etEmail.setText("");
+                    }
+                });
+
     }
 }
